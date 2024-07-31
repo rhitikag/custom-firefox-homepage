@@ -1,0 +1,40 @@
+
+/* Import IBM Plex Mono Bold from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&display=swap');
+
+/* Set the font family for the entire page */
+body {
+    font-family: 'IBM Plex Mono', monospace;
+    background: url('maomao.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #992e2e;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Styling for the greeting text */
+.greeting {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 900; /* Extra bold weight */
+    color: #ffcccc; /* Light color to contrast with the dark background */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7); /* Add shadow for depth */
+}
+
+/* Dark mode styling for the clock */
+.clock {
+    font-size: 3rem;
+    font-weight: 900; /* Extra bold weight */
+    color: #f1f1f1; /* Light color for better readability */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7); /* Add shadow for depth */
+}
