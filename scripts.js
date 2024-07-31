@@ -1,34 +1,45 @@
 
-function updateClock() {
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
+document.addEventListener("DOMContentLoaded", function() {
+    function updateClock() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        var timeString = hours + ':' + minutes + ' ' + ampm;
 
-    const timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    document.getElementById('clock').textContent = timeString;
-}
+        document.querySelector('.clock').textContent = timeString;
 
-function updateGreeting() {
-    const now = new Date();
-    const hours = now.getHours();
-    let greeting;
-
-    if (hours < 12) {
-        greeting = 'Good Morning';
-    } else if (hours < 18) {
-        greeting = 'Good Afternoon';
-    } else {
-        greeting = 'Good Evening';
+        // Update greeting
+        var greetingText = hours < 12 ? 'Good Morning!' : hours < 18 ? 'Good Afternoon!' : 'Good Evening!';
+        document.querySelector('.greeting').textContent = greetingText;
     }
 
-    document.getElementById('greeting').textContent = greeting;
-}
-
-function initialize() {
+    // Initial call to set time and greeting
     updateClock();
-    updateGreeting();
-    setInterval(updateClock, 1000);
-}
 
-window.onload = initialize;
+    // Update clock every minute
+    setInterval(updateClock, 60000);
+
+    // Function to toggle theme based on time
+    function toggleTheme() {
+        var hour = new Date().getHours();
+        var body = document.body;
+
+        if (hour >= 6 && hour < 18) { // Day time
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+        } else { // Night time
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+        }
+    }
+
+    // Initial theme set on page load
+    toggleTheme();
+
+    // Update theme every hour
+    setInterval(toggleTheme, 3600000); // Check every hour
+});
