@@ -1,4 +1,4 @@
-# 🌞🌜 Custom Homepage with Dynamic Day/Night Theme 🌜🌞
+# 🌞🌜 Custom Homepage with Dynamic Day/Night Theme 
 
 Welcome to your custom homepage project! This homepage dynamically changes its theme and background based on the time of day. Enjoy different greetings and beautiful background images for morning, afternoon, and evening.
 
