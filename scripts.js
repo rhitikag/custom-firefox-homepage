@@ -5,15 +5,22 @@ document.addEventListener("DOMContentLoaded", function() {
         var hours = now.getHours();
         var minutes = now.getMinutes();
         var ampm = hours >= 12 ? 'PM' : 'AM';
-        hours = hours % 12;
-        hours = hours ? hours : 12; // the hour '0' should be '12'
+        var displayHours = hours % 12;
+        displayHours = displayHours ? displayHours : 12; // the hour '0' should be '12'
         minutes = minutes < 10 ? '0' + minutes : minutes;
-        var timeString = hours + ':' + minutes + ' ' + ampm;
+        var timeString = displayHours + ':' + minutes + ' ' + ampm;
 
         document.querySelector('.clock').textContent = timeString;
 
         // Update greeting
-        var greetingText = hours < 12 ? 'Good Morning!' : hours < 18 ? 'Good Afternoon!' : 'Good Evening!';
+        var greetingText;
+        if (hours < 12) {
+            greetingText = 'Good Morning!';
+        } else if (hours < 18) {
+            greetingText = 'Good Afternoon!';
+        } else {
+            greetingText = 'Good Evening!';
+        }
         document.querySelector('.greeting').textContent = greetingText;
     }
 
@@ -42,4 +49,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Update theme every hour
     setInterval(toggleTheme, 3600000); // Check every hour
+
+    // Example: Change blur on hover over clock element
+    var clockElement = document.querySelector('.clock');
+    clockElement.addEventListener('mouseover', function() {
+        document.body.classList.add('active-blur');
+    });
+    clockElement.addEventListener('mouseout', function() {
+        document.body.classList.remove('active-blur');
+    });
 });
