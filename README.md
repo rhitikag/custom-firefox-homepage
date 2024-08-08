@@ -25,3 +25,16 @@ First, clone this repository to your local machine:
 git clone https://github.com/yourusername/custom-homepage.git
 cd custom-homepage
 ```
+
+### 2. Add Background Images
+
+Make sure your day and night background images are named daytime.jpg and nighttime.jpg, respectively, and placed in the root directory. If needed, adjust the paths in styles.css.
+
+### 3. Set Custom Homepage in Firefox
+
+    Open Firefox Settings: Click on the menu button (three horizontal lines) at the top right corner and select **Settings&**.
+    Home: In the left-hand sidebar, select "Home".
+    Homepage and new windows: In the "New Windows and Tabs" section, find the "Homepage and new windows" dropdown menu.
+    Custom URLs: Select "Custom URLs" and enter the file path to your index.html file. For example: file:///path/to/your/custom-homepage/index.html.
+
+7
