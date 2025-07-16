@@ -23,7 +23,7 @@ First, clone this repository to your local machine:
 
 ```sh
 git clone https://github.com/rhitikag/custom-firefox-homepage.git
-cd custom-homepage
+cd custom-firefox-homepage
 ```
 
 ### 2. Add Background Images
